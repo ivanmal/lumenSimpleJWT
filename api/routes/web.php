@@ -14,8 +14,7 @@
 */
 
 $router->get('/', function () use ($router) {
-    return 'API GATEWAY - v ' . env('VERSION_APP') . ' Copyright &copy; 2006-' . date('Y')
-        . ' https://www.duosystem.com.br/';
+    return 'API JWT - v ' . env('VERSION_APP');
 });
 
 $router->group(['middleware' => 'auth', 'prefix' => 'auth'], function () use ($router) {
@@ -26,7 +25,5 @@ $router->group(['middleware' => 'auth', 'prefix' => 'auth'], function () use ($r
 });
 
 $router->group(['prefix' => 'auth'], function () use ($router) {
-
-
     $router->post('login', 'AuthController@login');
 });
